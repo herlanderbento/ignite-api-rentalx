@@ -1,23 +1,14 @@
-import { Specification } from "../../model/Specification";
+import { Specification } from "../../entities/Specification";
 import {
   ICreateSpecificationDTO,
   ISpecificationsRepository,
 } from "../ISpecificationsRepository";
 
-class SpecificationRepository implements ISpecificationsRepository {
+class SpecificationsRepository implements ISpecificationsRepository {
   private specification: Specification[];
 
-  private static INSTANCE: SpecificationRepository;
-
-  private constructor() {
+  constructor() {
     this.specification = [];
-  }
-
-  public static getInstance(): SpecificationRepository {
-    if (!SpecificationRepository.INSTANCE) {
-      SpecificationRepository.INSTANCE = new SpecificationRepository();
-    }
-    return SpecificationRepository.INSTANCE;
   }
 
   execute({ name, description }: ICreateSpecificationDTO): void {
@@ -43,4 +34,4 @@ class SpecificationRepository implements ISpecificationsRepository {
   }
 }
 
-export { SpecificationRepository };
+export { SpecificationsRepository };
