@@ -11,7 +11,7 @@
   "paths": {
     "/categories": {
       "post": {
-        "tags": [" Category"],
+        "tags": ["Category"],
         "summary": "Create  category",
         "description": "Create a new Category",
         "requestBody": {
@@ -45,7 +45,7 @@
         }
       },
       "get": {
-        "tags": [" Category"],
+        "tags": ["Category"],
         "summary": "List all categories",
         "description": "List all category",
         "responses": {
@@ -68,6 +68,70 @@
               }
             }
           }
+        }
+      }
+    },
+    "/categories/import": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Upload category",
+        "description": "Upload a new category",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string"
+                  },
+                  "format": "binary"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          }
+        }
+      }
+    },
+    "/specification": {
+      "post": {
+        "tags": ["Specifications"],
+        "summary": "Create specifications ",
+        "description": "Create a new Specifications",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Specifications"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "500": {
+            "description": "Specifications already exists!"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Specifications": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
         }
       }
     }
