@@ -21,6 +21,9 @@ class User {
   @Column()
   isAdmin: string;
 
+  @Column()
+  avatar: string;
+
   constructor() {
     if (!this.id) {
       this.id = uuidV4();
