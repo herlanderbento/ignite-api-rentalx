@@ -6,7 +6,9 @@ class ListCategoriesController {
   async handle(request: Request, response: Response): Promise<Response> {
     const listCategoriesUseCases = container.resolve(ListCategoriesUseCases);
 
-    const all = await listCategoriesUseCases.execute();
+    const list = await listCategoriesUseCases.execute();
+
+    const all = Object.assign([...list, { total: list.length }]);
 
     return response.json(all);
   }
