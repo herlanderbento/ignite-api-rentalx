@@ -1,6 +1,5 @@
 import { Router } from "express";
-
-import { AuthenticateController } from "../modules/accounts/useCases/authenticateUser/AuthenticateController";
+import { AuthenticateController } from "@modules/accounts/useCases/authenticateUser/AuthenticateController";
 
 const authenticateRoutes = Router();
 
