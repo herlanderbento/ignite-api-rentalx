@@ -21,7 +21,7 @@ class CreateSpecificationUseCases {
       throw new AppError("Specification already exists.");
     }
 
-    this.specification.execute({ name, description });
+    this.specification.create({ name, description });
   }
 }
 
